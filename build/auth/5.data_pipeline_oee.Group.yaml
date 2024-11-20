@@ -1,0 +1,52 @@
+name: data_pipeline
+sourceId: 37c3183e-8c2b-40b4-b7dd-e57705a745be
+capabilities:
+- assetsAcl:
+    actions:
+    - READ
+    scope:
+      datasetScope:
+        ids:
+        - ds_icapi
+- datasetsAcl:
+    actions:
+    - READ
+    scope:
+      idScope:
+        ids:
+        - ds_uc_oee
+        - ds_icapi
+- groupsAcl:
+    actions:
+    - LIST
+    - READ
+    scope:
+      currentuserscope: {}
+- projectsAcl:
+    actions:
+    - LIST
+    - READ
+    scope:
+      all: {}
+- sessionsAcl:
+    actions:
+    - LIST
+    - CREATE
+    - DELETE
+    scope:
+      all: {}
+- timeSeriesAcl:
+    actions:
+    - READ
+    scope:
+      datasetScope:
+        ids:
+        - ds_icapi
+- timeSeriesAcl:
+    actions:
+    - READ
+    - WRITE
+    scope:
+      datasetScope:
+        ids:
+        - ds_uc_oee

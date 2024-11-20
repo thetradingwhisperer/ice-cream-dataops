@@ -1,0 +1,22 @@
+externalId: create_asset_hierarchy
+dataSetExternalId: ds_icapi
+name: create_asset_hierarchy
+destination:
+  type: asset_hierarchy
+ignoreNullFields: true
+isPublic: true
+conflictMode: upsert
+authentication:
+  clientId: ${IDP_CLIENT_ID}
+  clientSecret: ${IDP_CLIENT_SECRET}
+  tokenUri: ${IDP_TOKEN_URL}
+  cdfProjectName: ${CDF_PROJECT}
+  scopes: ${IDP_SCOPES}
+  audience: ''
+query: "SELECT\n  external_id AS externalId,\n  IF(\n    parent_external_id = ''\n\
+  \    OR parent_external_id IS NULL,\n    '',\n    parent_external_id\n  ) AS parentExternalId,\n\
+  \  name AS name,\n  json_tuple(metadata,'site', 'type', 'cycle time', 'Function',\
+  \ 'src', 'Machine type') AS (site, type, cycle_time, function, src, machine_type),\n\
+  \  to_metadata(site, type, cycle_time, function, src, machine_type) AS metadata,\n\
+  \  description AS description,\n  'from RAW' AS source,\n  Dataset_id('ds_icapi')\
+  \ AS dataSetId\nFROM\n  `ice_cream_api`.icapi_assets_extractor"

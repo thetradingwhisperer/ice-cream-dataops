@@ -1,0 +1,18 @@
+externalId: icapi_ts_assets_contextualization
+dataSetExternalId: ds_icapi
+name: icapi_ts_assets_contextualization
+destination:
+  type: timeseries
+ignoreNullFields: true
+isPublic: true
+conflictMode: upsert
+authentication:
+  clientId: ${IDP_CLIENT_ID}
+  clientSecret: ${IDP_CLIENT_SECRET}
+  tokenUri: ${IDP_TOKEN_URL}
+  cdfProjectName: ${CDF_PROJECT}
+  scopes: ${IDP_SCOPES}
+  audience: ''
+query: "SELECT ts.externalId AS externalId,\n      ast.id AS assetId\nFROM `_cdf`.`timeseries`\
+  \ AS ts\nINNER JOIN `_cdf`.`assets` AS ast ON split(ts.externalId, \":\") [0] =\
+  \ ast.externalId"

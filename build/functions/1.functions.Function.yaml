@@ -1,0 +1,45 @@
+- name: Ice Cream API Assets Extractor
+  externalId: icapi_assets_extractor
+  owner: Bootcamp Team
+  description: Extracts Asset data from the Ice Cream API
+  metadata:
+    version: '1.0'
+  runtime: py311
+  functionPath: ./handler.py
+  envVars:
+    CDF_PROJECT: cdf-bootcamp-04-test
+    CDF_URL: https://westeurope-1.cognitedata.com
+    IDP_TENANT_ID: ${IDP_TENANT_ID}
+    IDP_CLIENT_ID: ${ICAPI_EXTRACTORS_CLIENT_ID}
+    IDP_CLIENT_SECRET: ${ICAPI_EXTRACTORS_CLIENT_SECRET}
+    IDP_SCOPES: https://westeurope-1.cognitedata.com/.default
+- name: Ice Cream API Datapoints Extractor
+  externalId: icapi_datapoints_extractor
+  owner: Bootcamp Team
+  description: Extracts datapoints from the Ice Cream API
+  metadata:
+    version: '1.0'
+  runtime: py311
+  functionPath: ./handler.py
+  envVars:
+    CDF_PROJECT: cdf-bootcamp-04-test
+    CDF_URL: https://westeurope-1.cognitedata.com
+    IDP_TENANT_ID: ${IDP_TENANT_ID}
+    IDP_CLIENT_ID: ${ICAPI_EXTRACTORS_CLIENT_ID}
+    IDP_CLIENT_SECRET: ${ICAPI_EXTRACTORS_CLIENT_SECRET}
+    IDP_SCOPES: https://westeurope-1.cognitedata.com/.default
+- name: Ice Cream API Timeseries Extractor
+  externalId: icapi_timeseries_extractor
+  owner: Bootcamp Team
+  description: Extracts datapoints from the Ice Cream API
+  metadata:
+    version: '1.0'
+  runtime: py311
+  functionPath: ./handler.py
+  envVars:
+    CDF_PROJECT: cdf-bootcamp-04-test
+    CDF_URL: https://westeurope-1.cognitedata.com
+    IDP_TENANT_ID: ${IDP_TENANT_ID}
+    IDP_CLIENT_ID: ${ICAPI_EXTRACTORS_CLIENT_ID}
+    IDP_CLIENT_SECRET: ${ICAPI_EXTRACTORS_CLIENT_SECRET}
+    IDP_SCOPES: https://westeurope-1.cognitedata.com/.default
